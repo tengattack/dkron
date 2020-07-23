@@ -10,7 +10,7 @@ github.com/armon/circbuf v0.0.0-20150827004946-bbbad097214e h1:QEF07wC0T1rKkctt1
 github.com/armon/circbuf v0.0.0-20150827004946-bbbad097214e/go.mod h1:3U/XgcO3hCbHZ8TKRvWD2dDTCfh9M9ya+I9JpbB7O8o=
 github.com/armon/go-metrics v0.0.0-20171002182731-9a4b6e10bed6 h1:rfTl4Lc+Gfud1YdmAFg99WN4rICM1S65KXBuADdLTms=
 github.com/armon/go-metrics v0.0.0-20171002182731-9a4b6e10bed6/go.mod h1:Q73ZrmVTwzkszR9V5SSuryQ31EELlFMUz1kKyl939pY=
-github.com/coreos/etcd v3.2.9+incompatible h1:rK6tzefpypqZLvs9aX7R5vcl4u1xucf2esUzFvJM6vw=
+github.com/coreos/etcd v3.2.9+incompatible h1:3TbjfK5+aSRLTU/KgBC1xlgA2dn2ddYQngRqX6HFwlQ=
 github.com/coreos/etcd v3.2.9+incompatible/go.mod h1:uF7uidLiAD3TWHmW31ZFd/JWoc32PjwdhPthX9715RE=
 github.com/coreos/go-semver v0.2.0 h1:3Jm3tLmsgAYcjC+4Up7hJrFBPr+n7rAqYeSw/SZazuY=
 github.com/coreos/go-semver v0.2.0/go.mod h1:nnelYz7RCh+5ahJtPPxZlU+153eP4D4r3EedlOD2RNk=
@@ -44,7 +44,7 @@ github.com/hashicorp/go-multierror v0.0.0-20170622060955-83588e72410a h1:RUacJnO
 github.com/hashicorp/go-multierror v0.0.0-20170622060955-83588e72410a/go.mod h1:JMRHfdO9jKNzS/+BTlxCjKNQHg/jZAft8U7LloJvN7I=
 github.com/hashicorp/go-plugin v0.0.0-20180216154416-baa83ead6ff9 h1:GNjM6uTdjX3NoCYMUaMTSLntLGp6JAa+WXdd5M7FlO8=
 github.com/hashicorp/go-plugin v0.0.0-20180216154416-baa83ead6ff9/go.mod h1:JSqWYsict+jzcj0+xElxyrBQRPNoiWQuddnxArJ7XHQ=
-github.com/hashicorp/go-rootcerts v0.0.0-20160503143440-6bb64b370b90 h1:9HVkPxOpo+yO93Ah4yrO67d/qh0fbLLWbKqhYjyHq9A=
+github.com/hashicorp/go-rootcerts v0.0.0-20160503143440-6bb64b370b90 h1:VBj0QYQ0u2MCJzBfeYXGexnAl17GsH1yidnoxCqqD9E=
 github.com/hashicorp/go-rootcerts v0.0.0-20160503143440-6bb64b370b90/go.mod h1:o4zcYY1e0GEZI6eSEr+43QDYmuGglw1qSO6qdHUHCgg=
 github.com/hashicorp/go-sockaddr v0.0.0-20170627023441-41949a141473 h1:+OFKAM6bHeJGMqWAdzJ91f8OYZRJ6vDpUXjKb5/wfh4=
 github.com/hashicorp/go-sockaddr v0.0.0-20170627023441-41949a141473/go.mod h1:7Xibr9yA9JjQq1JpNB2Vw7kxv8xerXegt+ozgdvDeDU=

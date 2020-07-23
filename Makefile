@@ -1,3 +1,13 @@
+VERSION := 0.11.1
+LDFLAGS=-ldflags="-X github.com/victorcoder/dkron/dkron.Version=${VERSION}"
+
+default: build
+
+.PHONY: build
+build:
+	$(foreach p,$(PLUGINS),$(shell go build -o $(shell basename $(p)) ./$(p)))
+	go build ${LDFLAGS} -o main .
+
 LINUX_PKGS := $(wildcard dist/*.deb) $(wildcard dist/*.rpm)
 .PHONY: fury $(LINUX_PKGS)
 fury: $(LINUX_PKGS)
