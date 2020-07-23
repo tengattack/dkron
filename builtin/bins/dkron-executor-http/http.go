@@ -14,6 +14,7 @@ import (
 	"time"
 
 	"github.com/armon/circbuf"
+	"github.com/victorcoder/dkron/builtin/bins/dkron-executor-http/mrpc"
 	"github.com/victorcoder/dkron/dkron"
 )
 
@@ -75,10 +76,36 @@ func (s *HTTP) ExecuteImpl(args *dkron.ExecuteRequest) ([]byte, error) {
 	}
 
 	client := &http.Client{Timeout: time.Duration(_timeout) * time.Second}
-	req, err := http.NewRequest(args.Config["method"], args.Config["url"], bytes.NewBuffer([]byte(args.Config["body"])))
-	if err != nil {
-		return output.Bytes(), err
+	var req *http.Request
+	var err error
+
+	if args.Config["method"] == "mrpc" {
+		appKey := args.Config["app_key"]
+		key := args.Config["key"]
+
+		var input map[string]interface{}
+		err = json.Unmarshal([]byte(args.Config["body"]), &input)
+		if err != nil {
+			return output.Bytes(), err
+		}
+
+		signedData := mrpc.RPCSign(input, key)
+		req, err = http.NewRequest(http.MethodPost, args.Config["url"], bytes.NewReader(signedData))
+		if err != nil {
+			return output.Bytes(), err
+		}
+		req.Header.Set("Accept", "application/json")
+		if appKey != "" {
+			req.Header.Set("X-AppKey", appKey)
+		}
+	} else {
+		req, err = http.NewRequest(args.Config["method"], args.Config["url"], bytes.NewBuffer([]byte(args.Config["body"])))
+		if err != nil {
+			return output.Bytes(), err
+		}
 	}
+
+	req.Header.Set("User-Agent", "dkron-executor-http")
 
 	var headers []string
 	if args.Config["headers"] != "" {
