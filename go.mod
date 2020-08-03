@@ -11,7 +11,6 @@ require (
 	github.com/armon/go-metrics v0.0.0-20171002182731-9a4b6e10bed6
 	github.com/coreos/etcd v3.2.9+incompatible // indirect
 	github.com/coreos/go-semver v0.2.0 // indirect
-	github.com/davecgh/go-spew v1.1.0 // indirect
 	github.com/fsnotify/fsnotify v1.4.2 // indirect
 	github.com/gin-contrib/multitemplate v0.0.0-20170922032617-bbc6daf6024b
 	github.com/gin-contrib/sse v0.0.0-20170109093832-22d885f9ecc7 // indirect
@@ -60,7 +59,7 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/samuel/go-zookeeper v0.0.0-20170815201139-e6b59f6144be // indirect
 	github.com/sean-/seed v0.0.0-20170313163322-e2103e2c3529 // indirect
-	github.com/sirupsen/logrus v1.0.3
+	github.com/sirupsen/logrus v1.6.0
 	github.com/spf13/afero v0.0.0-20171008182726-e67d870304c4 // indirect
 	github.com/spf13/cast v1.1.0 // indirect
 	github.com/spf13/cobra v0.0.3
@@ -68,12 +67,11 @@ require (
 	github.com/spf13/pflag v0.0.0-20180821114517-d929dcbb1086
 	github.com/spf13/viper v1.0.2
 	github.com/stretchr/objx v0.1.1 // indirect
-	github.com/stretchr/testify v1.2.1
+	github.com/stretchr/testify v1.2.2
 	github.com/ugorji/go v0.0.0-20151028022000-f1f1a805ed36 // indirect
 	golang.org/x/crypto v0.0.0-20170930174604-9419663f5a44 // indirect
 	golang.org/x/net v0.0.0-20171016235512-1087133bc4af
 	golang.org/x/sync v0.0.0-20180314180146-1d60e4601c6f // indirect
-	golang.org/x/sys v0.0.0-20171017063910-8dbc5d05d6ed // indirect
 	golang.org/x/text v0.0.0-20171013141220-c01e4764d870 // indirect
 	google.golang.org/appengine v1.1.0 // indirect
 	google.golang.org/genproto v0.0.0-20171002232614-f676e0f3ac63 // indirect

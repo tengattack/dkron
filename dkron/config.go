@@ -17,6 +17,7 @@ type Config struct {
 	HTTPAddr              string `mapstructure:"http-addr"`
 	Backend               string
 	BackendMachines       []string `mapstructure:"backend-machine"`
+	BackendConfig         map[string]string `mapstructure:"backend-configs"`
 	Profile               string
 	Interface             string
 	AdvertiseAddr         string            `mapstructure:"advertise-addr"`
@@ -95,6 +96,7 @@ func ConfigFlagSet() *flag.FlagSet {
 	cmdFlags.String("http-addr", c.HTTPAddr, "Address to bind the UI web server to. Only used when server.")
 	cmdFlags.String("backend", c.Backend, "store backend")
 	cmdFlags.StringSlice("backend-machine", c.BackendMachines, "store backend machines addresses")
+	cmdFlags.StringSlice("backend-config", []string{}, "store backend config in multiple key/value pairs. Specified as key=value")
 	cmdFlags.String("profile", c.Profile, "Profile is used to control the timing profiles used. The default if not provided is lan.")
 	cmdFlags.StringSlice("join", []string{}, "An initial agent to join with. This flag can be specified multiple times.")
 	cmdFlags.StringSlice("tag", []string{}, "Tag can be specified multiple times to attach multiple key/value tag pairs to the given node. Specified as key=value")

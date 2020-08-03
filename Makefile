@@ -5,7 +5,7 @@ default: build
 
 .PHONY: build
 build:
-	$(foreach p,$(PLUGINS),$(shell go build -o $(shell basename $(p)) ./$(p)))
+	$(foreach p,$(PLUGINS),$(shell go build -o $(p) ./builtin/bins/$(p)))
 	go build ${LDFLAGS} -o main .
 
 LINUX_PKGS := $(wildcard dist/*.deb) $(wildcard dist/*.rpm)

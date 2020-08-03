@@ -287,7 +287,7 @@ func (a *Agent) SetConfig(c *Config) {
 
 func (a *Agent) StartServer() {
 	if a.Store == nil {
-		a.Store = NewStore(a.config.Backend, a.config.BackendMachines, a, a.config.Keyspace, nil)
+		a.Store = NewStore(a.config.Backend, a.config.BackendMachines, a, a.config.Keyspace, a.config.BackendConfig)
 		if err := a.Store.Healthy(); err != nil {
 			log.WithError(err).Fatal("store: Store backend not reachable")
 		}

@@ -1,9 +1,11 @@
+.git*
 docs
 static
 site
 public
 downloads
 *.etcd
+Dockerfile*
 vendor
 docker-compose
 dkron_theme

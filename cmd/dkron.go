@@ -79,6 +79,20 @@ func initConfig() {
 
 	config.Tags = tags
 
+	cliBackendConfig := viper.GetStringSlice("backend-config")
+	var backendConfig map[string]string
+
+	if len(cliBackendConfig) > 0 {
+                backendConfig, err = unmarshalTags(cliBackendConfig)
+                if err != nil {
+                        logrus.Fatal("config: Error unmarshaling backend config")
+                }
+	} else {
+		backendConfig = viper.GetStringMapString("backend_configs")
+        }
+
+	config.BackendConfig = backendConfig
+
 	dkron.InitLogger(viper.GetString("log-level"), config.NodeName)
 }
 

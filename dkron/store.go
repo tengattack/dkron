@@ -55,8 +55,17 @@ func init() {
 	redis.Register()
 }
 
-func NewStore(backend string, machines []string, a *Agent, keyspace string, config *store.Config) *Store {
-	s, err := valkeyrie.NewStore(store.Backend(backend), machines, config)
+func NewStore(backend string, machines []string, a *Agent, keyspace string, config map[string]string) *Store {
+	cfg := &store.Config{}
+	if config != nil {
+		if v, ok := config["username"]; ok {
+			cfg.Username = v
+		}
+		if v, ok := config["password"]; ok {
+			cfg.Password = v
+		}
+	}
+	s, err := valkeyrie.NewStore(store.Backend(backend), machines, cfg)
 	if err != nil {
 		log.Error(err)
 	}
