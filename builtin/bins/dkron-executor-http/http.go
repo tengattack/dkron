@@ -151,6 +151,20 @@ func (s *HTTP) ExecuteImpl(args *dkron.ExecuteRequest) ([]byte, error) {
 		return output.Bytes(), errors.New("Not reach the expected code")
 	}
 
+	// match headers
+	if args.Config["expectHeaders"] != "" {
+		var headers map[string]string
+		err = json.Unmarshal([]byte(args.Config["expectHeaders"]), &headers)
+		if err != nil {
+			return output.Bytes(), err
+		}
+		for k, v := range headers {
+			if resp.Header.Get(k) != v {
+				return output.Bytes(), fmt.Errorf("Not match the expected header %s: %s, actual: %s", k, v, resp.Header.Get(k))
+			}
+		}
+	}
+
 	// match response
 	if args.Config["expectBody"] != "" {
 		if m, _ := regexp.MatchString(args.Config["expectBody"], string(out)); !m {

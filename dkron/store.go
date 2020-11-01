@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"sort"
+	"strconv"
 	"time"
 
 	"github.com/abronan/valkeyrie"
@@ -63,6 +64,10 @@ func NewStore(backend string, machines []string, a *Agent, keyspace string, conf
 		}
 		if v, ok := config["password"]; ok {
 			cfg.Password = v
+		}
+		if v, ok := config["db"]; ok {
+			db, _ := strconv.Atoi(v)
+			cfg.DB = db
 		}
 	}
 	s, err := valkeyrie.NewStore(store.Backend(backend), machines, cfg)
